@@ -6,11 +6,9 @@ import java.io.IOException;
 import java.util.*;
 import java.util.Scanner;
 
-
 public class GiftCard {
 	private static Scanner keyboard;
 	public static void main(String[] args) {
-		
 		BufferedReader reader; 
 		try {
 			keyboard = new Scanner(System.in);
@@ -21,39 +19,29 @@ public class GiftCard {
 			List<String> words = new ArrayList<>();
 			
 			String line = reader.readLine();
-			
 			while(line != null) {
-				
 				String[]  wordsArray = line.split("\t");
-				
 				for(String each: wordsArray) {
 					words.add(each);
-				
 				}
-			   line = reader.readLine();	
+				line = reader.readLine();	
 			}
 			
-			//2 
 			String[] arr = new String[words.size()];
-			
 			LinkedHashMap<String, Integer> map = new LinkedHashMap<>();
 			for(int i = 0; i < words.size(); i++) {
-				
 				arr[i] = words.get(i);
-			}
-			
+			}	
 			for(String s: arr) {
 				int index = s.indexOf(',');
 				map.put(s.substring(0, index), Integer.valueOf(s.substring(index + 2)));
 			}
-	
 			List<Integer> list = new ArrayList<Integer>();
 			for(int i: map.values()) {
 				list.add(i);
 			}	
 			List<Integer> result = find(list, gifeCardValue);
-			for(int i = 0; i <result.size(); i++) {
-				
+			for(int i = 0; i < result.size(); i++) {
 				for(Map.Entry<String, Integer> entry: map.entrySet()) {
 					if(entry.getValue().equals(result.get(i))) {
 						System.out.print(entry.getKey() + " "+result.get(i) + " ");
@@ -89,8 +77,7 @@ public class GiftCard {
 		}
 		for(int i = 0; i < 2; i++) {
 			result.add(res[i]);
-		}
-		
+		}	
 		return result;
 	}
 
