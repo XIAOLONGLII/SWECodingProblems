@@ -80,5 +80,4 @@ public class GiftCard {
 		}	
 		return result;
 	}
-
 }
