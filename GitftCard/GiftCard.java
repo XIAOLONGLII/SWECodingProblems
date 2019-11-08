@@ -15,12 +15,12 @@ public class GiftCard {
 			String filename = keyboard.next();
 			int gifeCardValue = keyboard.nextInt();
 			
-			reader = new BufferedReader(new FileReader(filename));
+			reader = new BufferedReader(new FileReader(filename));//1.read the text file
 			List<String> words = new ArrayList<>();
 			
 			String line = reader.readLine();
 			while(line != null) {
-				String[]  wordsArray = line.split("\t");
+				String[]  wordsArray = line.split("\t");//2. split by tab
 				for(String each: wordsArray) {
 					words.add(each);
 				}
@@ -28,7 +28,7 @@ public class GiftCard {
 			}
 			
 			String[] arr = new String[words.size()];
-			LinkedHashMap<String, Integer> map = new LinkedHashMap<>();
+			LinkedHashMap<String, Integer> map = new LinkedHashMap<>(); //3. LinkedHashMap ensure the order
 			for(int i = 0; i < words.size(); i++) {
 				arr[i] = words.get(i);
 			}	
@@ -56,7 +56,7 @@ public class GiftCard {
 	private static List<Integer> find(List<Integer> sortedPricesArr, int giftCardValue) {
 
 		List<Integer> result = new ArrayList<>();
-		int leftPointer = 0;
+		int leftPointer = 0; 
 		int rightPointer = sortedPricesArr.size() - 1;
 		int currentMax = 0;
 		Integer[] res = new Integer[2];
